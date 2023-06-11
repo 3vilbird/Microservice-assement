@@ -19,6 +19,13 @@ namespace codegeneratorservice.Service
             _IntegrationService = iService;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// Service to generate the unique code and 
+        /// calls the end point to stores in the data base. 
+        /// </summary>
+        /// <param name="intCount"></param>
+        /// <returns></returns>
         public async Task<ResponseMessage> GenerateUniqueCode(int intCount)
         {
             if (intCount <= 0)
@@ -41,6 +48,14 @@ namespace codegeneratorservice.Service
                 statusCode = 200
             };
         }
+
+        /// <summary>
+        /// Compares generated unique code
+        /// Checks for duplication. 
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="dbCodeList"></param>
+        /// <returns>List of unique codes </returns>
         private List<UniqueCodeDTO> GenerateUniqueCodes(int count, List<UniqueCodeDTO> dbCodeList)
         {
             HashSet<UniqueCodeDTO> dbuniqueCodeList = new HashSet<UniqueCodeDTO>(dbCodeList);
@@ -58,6 +73,10 @@ namespace codegeneratorservice.Service
             return uniqueCodes.ToList<UniqueCodeDTO>();
         }
 
+        /// <summary>
+        /// Function to generate the unique code. 
+        /// </summary>
+        /// <returns>generated unique code </returns>
         private string GenerateRandomCode()
         {
             // Generate a random code of maximum length 5

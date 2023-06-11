@@ -15,6 +15,10 @@ public class StorageServiceController : ControllerBase
         _storageService = service;
     }
 
+    /// <summary>
+    /// End point to get all the unique codes from the DB 
+    /// </summary>
+    /// <returns>list of unique codes</returns>
     [HttpGet]
     public async Task<IActionResult> Storage()
     {
@@ -22,6 +26,11 @@ public class StorageServiceController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// End point to store the data in the db
+    /// </summary>
+    /// <param name="lstUniqueCode"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<IActionResult> Storage(List<UniqueCode> lstUniqueCode)
     {

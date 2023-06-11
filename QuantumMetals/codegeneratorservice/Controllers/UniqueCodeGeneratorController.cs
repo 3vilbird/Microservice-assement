@@ -13,6 +13,12 @@ public class UniqueCodeGeneratorController : ControllerBase
     {
         _uniqueCodeGeneratorService = _service;
     }
+    /// <summary>
+    /// Endpoint to generate the Unique codes.
+    /// </summary>
+    /// <param name="intCount"></param>
+    /// <returns></returns>
+
     [HttpGet(Name = "GenerateCodes")]
     public async Task<IActionResult> GenerateUniqueCode(int intCount)
     {

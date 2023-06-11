@@ -14,6 +14,10 @@ namespace codegeneratorservice.IntegrationService
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Calls the end point to get the unique codes from the data base.
+        /// </summary>
+        /// <returns></returns>
         public async Task<ResponseMessage> GetData()
         {
 
@@ -29,7 +33,6 @@ namespace codegeneratorservice.IntegrationService
                 var response = await _httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
-                //ResponseMessage responseObject = JsonSerializer.Deserialize<ResponseMessage>(content);
                 ResponseMessage responseObject = JsonConvert.DeserializeObject<ResponseMessage>(content);
                 return responseObject;
             }
@@ -41,7 +44,11 @@ namespace codegeneratorservice.IntegrationService
 
         }
 
-
+        /// <summary>
+        /// This will call the endpoint to store the unique codes.
+        /// </summary>
+        /// <param name="lstUniqueCode"></param>
+        /// <returns></returns>
         public async Task<ResponseMessage> AddCodeToStorage(List<UniqueCodeDTO> lstUniqueCode)
         {
             // call the external service to store the data;

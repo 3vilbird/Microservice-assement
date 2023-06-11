@@ -13,12 +13,23 @@ namespace storageservice.Service
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Service to add the data in the DB
+        /// </summary>
+        /// <param name="lstUniqueCode"></param>
+        /// <returns></returns>
         public async Task<ResponseMessage> AddData(List<UniqueCode> lstUniqueCode)
         {
             _context.AddRange(lstUniqueCode);
             await _context.SaveChangesAsync();
             return new ResponseMessage { Message = "Resource Added successfully", statusCode = 200 };
         }
+
+        /// <summary>
+        /// Service to get all the codes from DB.
+        /// </summary>
+        /// <returns></returns>
         public async Task<ResponseMessage> ReadData()
         {
             List<UniqueCode> records = await _context.UniqueCodeItems.ToListAsync();
