@@ -37,19 +37,28 @@ Conditions:
   
  ##### Approach I:   
   
-  1. First approach would be like get all the unique codes present in the data base before generating the new codes.
+  1. First approach would be like get all the unique codes present in the data base before generating the new codes. 
+  
   2. Put them in the hash set ( because all CRUD operation in the hash set will be done in Big 'O' of one , meaning faster comparisition).
+  
   3. After generating the unique each time check weather it exists int the hash set or not, make sure the it does not exist in the newly generated set as well.
+  
   4. No here we are trading with memory against the more network calls (how ? i will explain in the next approach )
   
   ##### Approach II:
    
    1.In the second approach generate all the unique codes .
+   
    2.send them to the storage service and before insertion check for the duplication.
+   
    3.If it exists then do not insert store it in the separate hash map.
+   
    4.Once all the insertion is done return the duplicte items to the code generation service.
+   
    5.Regenerate the unique codes check for the duplication send the newly generated codes to storage service.
+   
    6.Repeate the process till the return count of duplicate is zero from the storage service.
+   
    7.Here we are tading with the network calls against the memory.
   
   ##### Approach III:
