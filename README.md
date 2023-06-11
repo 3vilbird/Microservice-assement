@@ -3,7 +3,7 @@
 ## Steps to run the setup
 
 ##### 1. Clone the repo.
-##### 2. Make sure that you are in the parent directory (palce where docker-compose file exists).
+##### 2. Make sure that you are in the parent directory (place where docker-compose file exists).
 ##### 3. Issue the command docker-compose up
 ##### 4. Visit the below urls
       : http://localhost:8080/swagger/index.html  (CODE GENERATION SERVICE.)
