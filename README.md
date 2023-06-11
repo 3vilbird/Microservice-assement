@@ -66,6 +66,67 @@ Conditions:
   1. Third approch would be we should come up with some code generation algorithm wich will ensure that it generates
       unique code every time.
       
+      
+      
+
+
+
+
+
+
+## SYSTEM DESIGN.
+
+![](https://github.com/3vilbird/Microservice-assement/blob/master/QuantumMetals/ARCHITECTURE.png)
+
+
+
+As shown in the above  diagram we have three containers running.
+
+These three services will communicate each other to process the request/data.
+
+
+### API Entities used.
+
+1. Input entity for code generation service : - integer.
+2. Input entity for storage service : -
+
+        [ 
+              {
+                 string strUniqueCode ;
+               }
+        ]
+
+This will be an array/list of unique codes generated.
+
+
+3.Response Entity ( common for both the services.)
+```
+   {
+        int statusCode 
+        string Message 
+        List<UniqueCode> Data
+   }
+   
+```
+
+status code : 200 for success case
+            : 400 for error/fail case.
+            
+ Message    : will have error message in error case, null in other case.
+ 
+ Data : will have the array of data requested.
+
+
+
+
+
+#### Developer Note :  The assement was interesting and I enjoyed building the system  :slightly_smiling_face: .
+      
+Looking forward  for optimisation suggestions (currently i followed the first approach.)
+
+
+
+      
   
      
    
