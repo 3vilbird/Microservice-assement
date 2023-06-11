@@ -1,4 +1,4 @@
-# Microservice-assement
+# Microservice-assessment
 
 ## Steps to run the setup
 
@@ -41,7 +41,7 @@ Conditions:
   
   2. Put them in the hash set ( because all CRUD operation in the hash set will be done in Big 'O' of one , meaning faster comparisition).
   
-  3. After generating the unique each time check weather it exists int the hash set or not, make sure the it does not exist in the newly generated set as well.
+  3. After generating the unique each time check weather it exists in the hash set or not, make sure the it does not exist in the newly generated set as well.
   
   4. No here we are trading with memory against the more network calls (how ? i will explain in the next approach )
   
